@@ -1,5 +1,6 @@
 package com.utils;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.testng.annotations.AfterSuite;
@@ -25,7 +26,12 @@ public abstract class Reporter extends AbstractTestNGCucumberTests{
 	
 	@BeforeSuite
 	public void startReport() {
-		reporter = new ExtentHtmlReporter("./reports/result.html");
+		//new ExtentHtmlReporter(new File("./reports/result.html"));
+		File file = new File("./reports/result.html");
+		if(file.exists()) {
+			file.delete();
+		}
+		reporter = new ExtentHtmlReporter(new File("./reports/result.html"));
 		reporter.setAppendExisting(true); 
 		extent = new ExtentReports();
 		extent.attachReporter(reporter);
