@@ -145,7 +145,7 @@ public interface Element {
 	 * @return true if this String represents the same sequence of characters as the specified value, false otherwise
 	 * 
 	 */
-	public void verifyPartialAttribute(WebElement ele, String attribute, String value);
+	public boolean verifyPartialAttribute(WebElement ele, String attribute, String value);
 	
 	/**
 	 * This method will verify if the element is visible in the DOM
@@ -169,7 +169,6 @@ public interface Element {
 	 * @param ele   - The Webelement (Radio button, Checkbox) to be verified
 	 * @return true - if the element is enabled else false
 	 * @author Dhandapani
-	 * 
 	 * @see locateElement method in Browser Class
 	 * @return True if the element is enabled, false otherwise.
 	 */

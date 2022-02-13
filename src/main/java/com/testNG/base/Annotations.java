@@ -24,6 +24,7 @@ public class Annotations extends SeleniumBase{
 
   @AfterMethod
   public void afterMethod() {
+	  System.out.println("@AfterMethod - testng");
 	  close();
   }
 }

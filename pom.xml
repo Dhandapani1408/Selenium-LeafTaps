@@ -3,7 +3,6 @@
 	<groupId>Selenium-Practice</groupId>
 	<artifactId>Selenium-Practice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -61,6 +60,4 @@
 			<version>2.5</version>
 		</dependency>
 	</dependencies>
-
-
 </project>
