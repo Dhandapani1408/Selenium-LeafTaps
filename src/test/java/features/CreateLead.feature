@@ -13,7 +13,6 @@ Feature: Login For LeafTaps Application
     And Enter the LastName as <LastName>
     And Click on Submit for Create Leads
     Then Validate lead is created
-
     Examples: 
       | UserName         | Password | CompanyName | FirstName | LastName |
       | DemoCSR          | crmsfa   | TestLeaf    | TestQa    | Auto     |

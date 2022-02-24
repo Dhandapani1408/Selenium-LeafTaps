@@ -17,6 +17,7 @@ public class TC_0001 extends Annotations{
 		author = "dhandapani";
 		category = "sanity";
 		excelFileName = "TC001";
+		sheetName = "Login";
 	} 
 
 	@Test(dataProvider="fetchData") 

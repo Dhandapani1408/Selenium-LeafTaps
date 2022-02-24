@@ -6,7 +6,7 @@ import com.testNG.base.Annotations;
 
 import cucumber.api.CucumberOptions;
 
-@CucumberOptions(features="src/test/java/features/Test.feature",
+@CucumberOptions(features="src/test/java/features/CreateLead.feature",
 				 glue={"com.steps"}, 
 				 monochrome=true)
 

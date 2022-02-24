@@ -13,7 +13,7 @@ public class Annotations extends SeleniumBase{
 	
 	@DataProvider(name = "fetchData")
 	public Object[][] fetchData() throws Exception {
-		return ExcelLibrary.readExcelData(excelFileName);
+		return ExcelLibrary.readExcelData(excelFileName,sheetName);
 	}	
   
   @BeforeMethod
@@ -24,7 +24,6 @@ public class Annotations extends SeleniumBase{
 
   @AfterMethod
   public void afterMethod() {
-	  System.out.println("@AfterMethod - testng");
 	  close();
   }
 }

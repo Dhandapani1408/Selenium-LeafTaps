@@ -23,6 +23,7 @@ public abstract class Reporter extends AbstractTestNGCucumberTests{
 	
 	public String testcaseName, testcaseDec, author, category;
 	public String excelFileName;
+	public String sheetName;
 	
 	@BeforeSuite
 	public void startReport() {

@@ -7,10 +7,10 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelLibrary {
 
-	public static Object[][] readExcelData(String excelfileName) throws Exception {
+	public static Object[][] readExcelData(String excelfileName,String sheetName) throws Exception {
 		XSSFWorkbook wbook = 
 				new XSSFWorkbook("./data/"+excelfileName+".xlsx");
-		XSSFSheet sheet = wbook.getSheetAt(0);
+		XSSFSheet sheet = wbook.getSheet(sheetName);
 		int rowCount = sheet.getLastRowNum();
 //		System.out.println("Row Count is: "+rowCount);
 		int colCount = sheet.getRow(0).getLastCellNum();
