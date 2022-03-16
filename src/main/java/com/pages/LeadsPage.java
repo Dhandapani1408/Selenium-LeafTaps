@@ -1,8 +1,12 @@
 package com.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.testNG.base.Annotations;
 
@@ -76,6 +80,24 @@ public class LeadsPage extends Annotations{
 	@FindBy(xpath="//*[@id='viewLead_statusId_sp']")
 	WebElement viewLead_statusId_sp;
 	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//*[text()='Name and ID']")
+	WebElement findLeads_NameAndID;
+	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//input[@name='id']")
+	WebElement findLeads_Input_LeadId;
+	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//input[@name='firstName']")
+	WebElement findLeads_Input_firstName;
+	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//input[@name='lastName']")
+	WebElement findLeads_Input_lastName;
+	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//input[@name='companyName']")
+	WebElement findLeads_Input_companyName;
+	
+	@FindBy(xpath="//*[@id='findLeads']//child::div//*[text()='Find Leads']")
+	WebElement findLeads_Button;
+	
 	
 	static String firstName=null;
 	static String lastName=null;
@@ -133,5 +155,26 @@ public class LeadsPage extends Annotations{
 		return this;
 	}
 	
+	public LeadsPage clickFindLeads() {
+		click(findLeads);
+		return this;
+	}
+	
+	public LeadsPage findLeadsByNameAndId() {
+		click(findLeads_NameAndID);
+		clearAndType(findLeads_Input_LeadId, leadID);
+		clearAndType(findLeads_Input_firstName, firstName);
+		clearAndType(findLeads_Input_lastName, lastName);
+		clearAndType(findLeads_Input_companyName, companyName);
+		click(findLeads_Button);
+		return this;
+	} 
+	
+	public void validateResultByFindLeads() {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='findLeads']//child::div//*[text()='Lead List']/following::a[text()='"+leadID+"']")));
+		WebElement firstResultLeadId = locateElement("xpath", "//*[@id='findLeads']//child::div//*[text()='Lead List']/following::a[text()='"+leadID+"']");
+		verifyExactText(firstResultLeadId, leadID);
+	}
 	
 }
