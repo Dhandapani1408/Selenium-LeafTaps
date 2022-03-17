@@ -177,4 +177,22 @@ public class LeadsPage extends Annotations{
 		verifyExactText(firstResultLeadId, leadID);
 	}
 	
+	public void validateFirstRowResults() {
+		By xpathFirstLead = By.xpath("((//*[@class='x-grid3']//table)[2]//tr//td//child::a)[1]");
+		By xpathFirstFname = By.xpath("((//*[@class='x-grid3']//table)[2]//tr//td//child::a)[3]");
+		By xpathFirstLname = By.xpath("((//*[@class='x-grid3']//table)[2]//tr//td//child::a)[4]");
+		By xpathFirstCompanyName = By.xpath("((//*[@class='x-grid3']//table)[2]//tr//td//child::a)[5]");
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(xpathFirstLead));
+		WebElement eleFirstLead = driver.findElement(xpathFirstLead);
+		WebElement eleFirstFname = driver.findElement(xpathFirstFname);
+		WebElement eleFirstLname = driver.findElement(xpathFirstLname);
+		WebElement eleFirstCompanyName = driver.findElement(xpathFirstCompanyName);
+		verifyExactText(eleFirstLead, leadID);
+		verifyExactText(eleFirstFname, firstName);
+		verifyExactText(eleFirstLname, lastName);
+		verifyExactText(eleFirstCompanyName, companyName);
+		
+	}
+	
 }

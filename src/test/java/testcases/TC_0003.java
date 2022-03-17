@@ -27,7 +27,7 @@ public class TC_0003 extends Annotations{
 		.clickLogin().clickCRMSFA().clickLeadsMenu().clickCreateLeads()
 		.enterCompanyName(compName).enterFirstName(fName).enterLastName(lName).clickSubmitForCreateLead()
 		.validateCreatedCompanyName().validateCreatedFirstName().validateCreatedLastName()
-		.clickFindLeads().findLeadsByNameAndId().validateResultByFindLeads();
+		.clickFindLeads().findLeadsByNameAndId().validateFirstRowResults();
 		
 	}
 
