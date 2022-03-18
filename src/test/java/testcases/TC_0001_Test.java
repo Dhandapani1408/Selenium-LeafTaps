@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import com.pages.LoginPage;
 import com.testNG.base.Annotations;
 
-public class TC_0001 extends Annotations{
+public class TC_0001_Test extends Annotations{
 
 
 	
