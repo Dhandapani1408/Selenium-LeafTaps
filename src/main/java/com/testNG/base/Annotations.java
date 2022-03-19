@@ -19,7 +19,7 @@ public class Annotations extends SeleniumBase{
   @BeforeMethod
   public void beforeMethod() {
 	startApp("chrome", "http://leaftaps.com/opentaps");
-	node = test.createNode(testcaseName);
+	
   }
 
   @AfterMethod
