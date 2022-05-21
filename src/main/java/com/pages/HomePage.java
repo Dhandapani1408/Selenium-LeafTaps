@@ -38,6 +38,12 @@ public class HomePage extends Annotations{
 	@FindBy(how=How.XPATH, using="//a[text()='Create Contact']") 
 	WebElement eleCreate_ContactShortCut;
 	
+	@FindBy(how=How.XPATH, using="//a[text()='Find Leads']") 
+	WebElement eleCreate_FindLeadsShortCut;
+	
+	@FindBy(how=How.XPATH, using="//a[text()='Merge Leads']") 
+	WebElement eleCreate_MergeLeadsShortCut;
+	
 	
 	public LoginPage clickLogout() {
 		WebElement eleLogout = locateElement("class", "decorativeSubmit");
@@ -57,7 +63,7 @@ public class HomePage extends Annotations{
 	
 	public HomePage clickCRMSFA() {
 		click(eleCRM);  
-		return this;
+		return new HomePage();
 	}
 	
 	public AccountsPage clickCreateAccountShortCut() {
@@ -69,4 +75,11 @@ public class HomePage extends Annotations{
 		click(eleMenuAccounts);  
 		return new AccountsPage();
 	}
+	
+	public LeadsPage clickFindLeadsShortCut() {
+		click(eleCreate_FindLeadsShortCut);
+		return new LeadsPage();
+	}
+	
+	
 }

@@ -13,13 +13,13 @@ public class Annotations extends SeleniumBase{
 	
 	@DataProvider(name = "fetchData")
 	public Object[][] fetchData() throws Exception {
-		return ExcelLibrary.readExcelData(excelFileName);
+		return ExcelLibrary.readExcelData(excelFileName,sheetName);
 	}	
   
   @BeforeMethod
   public void beforeMethod() {
 	startApp("chrome", "http://leaftaps.com/opentaps");
-	node = test.createNode(testcaseName);
+	
   }
 
   @AfterMethod

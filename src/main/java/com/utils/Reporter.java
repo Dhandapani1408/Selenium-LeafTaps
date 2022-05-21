@@ -23,6 +23,7 @@ public abstract class Reporter extends AbstractTestNGCucumberTests{
 	
 	public String testcaseName, testcaseDec, author, category;
 	public String excelFileName;
+	public String sheetName;
 	
 	@BeforeSuite
 	public void startReport() {
@@ -39,7 +40,7 @@ public abstract class Reporter extends AbstractTestNGCucumberTests{
 	
     @BeforeClass
 	public void report() throws IOException {
-		test = extent.createTest(testcaseName, testcaseDec);
+		test = extent.createTest(testcaseName);
 		test.assignAuthor(author);
 		test.assignCategory(category);  
 	}

@@ -2,7 +2,6 @@ package com.selenium.base;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -138,12 +137,15 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		try {
 			if(ele.getText().equals(expectedText)) {
 				System.out.println("The expected text contains the actual "+expectedText);
+				reportStep("The expected text contains the actual "+expectedText,"pass");
 				return true;
 			}else {
 				System.out.println("The expected text doesn't contain the actual "+expectedText);
+				reportStep("The expected text doesn't contain the actual "+expectedText,"fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("Unknown exception occured while verifying the Text");
+			reportStep("Unknown exception occured while verifying the Text","fail");
 		} 
 
 		return false;
@@ -154,12 +156,15 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		try {
 			if(ele.getText().contains(expectedText)) {
 				System.out.println("The expected text contains the actual "+expectedText);
+				reportStep("The expected text contains the actual "+expectedText,"pass");
 				return true;
 			}else {
 				System.out.println("The expected text doesn't contain the actual "+expectedText);
+				reportStep("The expected text doesn't contain the actual "+expectedText,"fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("Unknown exception occured while verifying the Text");
+			reportStep("Unknown exception occured while verifying the Text","fail");
 		} 
 
 		return false;
@@ -170,28 +175,35 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		try {
 			if(ele.getAttribute(attribute).equals(value)) {
 				System.out.println("The expected attribute :"+attribute+" value contains the actual "+value);
+				reportStep("The expected attribute :"+attribute+" value contains the actual "+value,"pass");
 				return true;
 			}else {
 				System.out.println("The expected attribute :"+attribute+" value does not contains the actual "+value);
+				reportStep("The expected attribute :"+attribute+" value does not contains the actual "+value,"fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("Unknown exception occured while verifying the Attribute Text");
+			reportStep("Unknown exception occured while verifying the Attribute Text","fail");
 		}
 		return false;
 	}
 
 	
-	public void verifyPartialAttribute(WebElement ele, String attribute, String value) {
+	public boolean verifyPartialAttribute(WebElement ele, String attribute, String value) {
 		try {
 			if(ele.getAttribute(attribute).contains(value)) {
 				System.out.println("The expected attribute :"+attribute+" value contains the actual "+value);
+				reportStep("The expected attribute :"+attribute+" value contains the actual "+value,"pass");
+				return true;
 			}else {
 				System.out.println("The expected attribute :"+attribute+" value does not contains the actual "+value);
+				reportStep("The expected attribute :"+attribute+" value does not contains the actual "+value,"fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("Unknown exception occured while verifying the Attribute Text");
+			reportStep("Unknown exception occured while verifying the Attribute Text","fail");
 		}
-
+		return false;
 	}
 
 	
@@ -199,12 +211,15 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		try {
 			if(ele.isDisplayed()) {
 				System.out.println("The element "+ele+" is visible");
+				reportStep("The element "+ele+" is visible","pass");
 				return true;
 			} else {
 				System.out.println("The element "+ele+" is not visible");
+				reportStep("The element "+ele+" is not visible","fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("WebDriverException : "+e.getMessage());
+			reportStep("WebDriverException : "+e.getMessage(),"fail");
 		} 
 		return false;
 
@@ -221,12 +236,15 @@ public class SeleniumBase extends Reporter implements Browser, Element{
 		try {
 			if(ele.isEnabled()) {
 				System.out.println("The element "+ele+" is Enabled");
+				reportStep("The element "+ele+" is Enabled","pass");
 				return true;
 			} else {
 				System.out.println("The element "+ele+" is not Enabled");
+				reportStep("The element "+ele+" is not Enabled","fail");
 			}
 		} catch (WebDriverException e) {
 			System.out.println("WebDriverException : "+e.getMessage());
+			reportStep("WebDriverException : "+e.getMessage(),"fail");
 		}
 		return false;
 	}
