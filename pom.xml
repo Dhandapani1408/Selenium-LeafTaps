@@ -4,6 +4,7 @@
 	<artifactId>Selenium-Practice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
+	
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
